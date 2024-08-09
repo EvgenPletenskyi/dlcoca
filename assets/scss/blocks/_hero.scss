@@ -1,0 +1,187 @@
+.hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    overflow: hidden;
+    @media (min-width: 860px) {
+        flex-direction: row;
+      }
+    .hero-text-block {
+        width: 100%;
+        margin-top: 20vh;
+        @media (min-width: 400px) {
+            margin-top: 30vh;
+        }
+        @media (min-width: 860px) {
+            width: 50vw;
+          }
+        @media (min-width: 1024px) {
+            padding-left: 148px;
+          }
+    }
+    &__tite{
+        h2 {
+            font-size: 52px;
+            @media (min-width: 1024px) {
+                font-size: 72px;
+              }
+        }
+    }
+    &__description {
+        margin-top: 12px;
+        p {
+            font-size: 28px;
+            font-family: "Risque", serif;
+            font-weight: 400;
+            font-style: normal;
+            @media (min-width: 1024px) {
+                margin-top: 20px;
+                font-size: 38px;
+              }
+        }
+    }
+    &__button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 44px;
+        @media (min-width: 768px) {
+            justify-content: start;
+            margin-top: 25px;
+          }
+        a {
+            text-decoration: none;
+        }
+        .button {
+            border: 2px solid #fff;
+            min-width: 152px;
+            min-height: 14px;
+            border-radius: 20px 20px 20px 0;
+            background-color: #141429;
+            transition: color 0.5s, border-color 0.5s, background-color 0.5s;
+            &:hover {
+                animation: invert-animation 0.5s forwards;
+            }
+            &:not(:hover) {
+                animation: revert-animation 0.5s forwards;
+            }
+        }
+    }
+    &__dedcoca-container {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        @media (min-width: 860px) {
+            max-width: 390px;
+          }
+        @media (min-width: 1024px) {
+        max-width: 480px;
+        display: block;
+        }
+        @media (min-width: 1400px) {
+            max-width: 780px;
+            display: block;
+            }
+        .speech-bubbles {
+            display: none;
+            transition: all 0.3s ease;
+            @media (min-width: 1400px) {
+            position: absolute;
+            bottom: 250px;
+            padding: 10px;
+            border-radius: 50%;
+            width: 223px;
+            min-height: 166px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            z-index: 2;
+            font-size: 18px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 1);
+            opacity: 0;
+            transform: scale(0);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            p {
+                font-family: "Risque", serif;
+                font-weight: 400;
+                font-style: normal;
+                position: relative;
+                color: #000;
+                z-index: 3;
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: inherit;
+                filter: blur(15px);
+                z-index: 1;
+                border-radius: 50%;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 10px;
+                right: -30px;
+                width: 0;
+                height: 0;
+                border-left: 60px solid #fff;
+                border-top: 17px solid transparent;
+                border-bottom: 17px solid transparent;
+                transform: rotate(-45deg);
+                filter: blur(1.5px);
+            }
+            }
+        }
+        .dedcoca {
+            margin-top: 20px;
+            height: 40vh;
+            object-fit: cover;
+            object-position: top;
+            @media (min-width: 768px) and (max-width: 860px) {
+                object-position: top;
+                object-fit: contain;
+                height: 45vh;
+              }
+              @media (min-width: 860px) and (max-width: 1023px) {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+                height: 45vh;
+                object-fit: contain;
+              }
+              @media (min-width: 1024px) {
+                position: absolute;
+                right: -120px;
+                bottom: 0;
+                max-height: 580px;
+                height: 60vh;
+                object-fit: cover;
+              }
+              @media (min-width: 1400px) {
+                height: 100vh;
+                }
+        }
+    }
+}
+
+@keyframes invert-animation {
+    to {
+      filter: invert(1);
+    }
+}
+
+@keyframes revert-animation {
+    from {
+        filter: invert(1);
+    }
+    to {
+        filter: none;
+    }
+}
